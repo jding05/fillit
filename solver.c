@@ -6,7 +6,7 @@
 /*   By: sding <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 21:12:23 by sding             #+#    #+#             */
-/*   Updated: 2018/03/27 21:12:25 by sding            ###   ########.fr       */
+/*   Updated: 2018/04/30 21:13:39 by sding            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int		put_tet(char *tet, char **table, int xy[2], int side)
 	point->spot[1] = xy[1];
 	get_coor_pos(tet, point, coordinates, 0);
 	if (!coor_validator(table, coordinates, side))
+	{
+		free(point);
 		return (0);
+	}
 	ft_fill_char(table, coordinates, c);
 	free(point);
 	return (1);
